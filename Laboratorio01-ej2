@@ -1,0 +1,21 @@
+Algoritmo ServirCafe
+	Escribir "=== PROCESO PARA SERVIR UN CAF� ==="
+	Escribir "Presiona Enter para comenzar a preparar tu caf�..."
+	Esperar Tecla
+	
+	Escribir "Paso 1: Tomar una taza limpia y colocarla debajo de la cafetera."
+	Escribir "Paso 2: Tomar la jarra y servir el caf� preparado en la taza."
+	
+	Escribir "�Deseas agregar az�car? (S/N):"
+	Leer respuestaAzucar
+	
+	Si Mayusculas(respuestaAzucar) = "S" Entonces
+		Escribir "Paso 3: Agregar una cucharada de az�car a la taza."
+		Escribir "Paso 4: Mezclar bien con una cuchara."
+	Sino
+		Escribir "Paso 3: Omitir az�car."
+	FinSi
+	
+	Escribir "--------------------------------------------"
+	Escribir "�Listo! Tu taza de caf� est� servida y lista para consumir."
+FinAlgoritmo
