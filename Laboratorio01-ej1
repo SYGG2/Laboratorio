@@ -1,0 +1,17 @@
+Algoritmo ingresoalaU
+	Definir Edad Como Real
+	Definir Nombre, Casa, Lugar, Transporte Como Caracter
+	Escribir "De donde vienes? "
+	leer Casa
+	Escribir "A donde vas?"
+	Leer Lugar
+	Escribir  "Con que transporte viajas? "
+	Leer Transporte
+	Escribir "Cuantos a�os tienes?"
+	Leer Edad
+	Escribir "Cual es tu Nombre?"
+	leer Nombre
+
+	Escribir "los datos son: ","Tiene: ",Edad, "Su nombre es: ",Nombre,  "Viene de: ",Casa,  "Va hacia: " ,Lugar,  "Viaja en: ",Transporte
+	
+FinAlgoritmo
