@@ -1,0 +1,63 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    // Declaraci�n de variables
+    string nombre;
+    int edad;
+    string carrera;
+    int semestre;
+    float promedio;
+
+    // Entrada de datos
+    cout << "=== REGISTRO DE ESTUDIANTE ===" << endl;
+
+    cout << "Ingrese el nombre del estudiante: ";
+    getline(cin, nombre);
+
+    cout << "Ingrese la edad: ";
+    cin >> edad;
+
+    cin.ignore();
+
+    cout << "Ingrese la carrera: ";
+    getline(cin, carrera);
+
+    cout << "Ingrese el semestre: ";
+    cin >> semestre;
+
+    cout << "Ingrese el promedio: ";
+    cin >> promedio;
+
+
+    // Salida
+    cout << "=== DATOS INGRESADOS ===" << endl;
+    cout << "Nombre: " << nombre << endl;
+    cout << "Edad: " << edad  << endl;
+    //Condicion
+
+    if (edad >= 18) {
+        cout << "--Es mayor de edad--" << endl;
+    }
+   else {
+    cout << "--Es menor de edad--" << endl;
+   }
+
+    cout << "Carrera: " << carrera << endl;
+    cout << "Semestre: " << semestre << endl;
+     cout << "Promedio: " << promedio << endl;
+
+    //Condicion
+
+    if (promedio >= 51) {
+        cout << "===APROBADO===" << endl;
+    }
+   else {
+    cout << "===REPROBADO===" << endl;
+   }
+
+    return 0;
+}
