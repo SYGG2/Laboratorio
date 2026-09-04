@@ -1,1 +1,57 @@
+    #include <iostream>
+    #include <iomanip>
+    #include <string>
 
+    using namespace std;
+
+    int main() {
+
+        //Variables
+
+        double metros, costo = 0.0, fijo = 10.00, total = 0.0;
+        string categoria = "";
+        string nombre;
+
+        //Datos a pedir
+
+        cout << "Ingrese su nombre: ";
+        cin >> nombre;
+
+        cout << "Ingrese el consumo en metros: ";
+        cin >> metros;
+
+        //Condicionales
+
+        if (metros < 0) {
+            cout << "Error: Consumo negativo." << endl;
+        } else if (metros == 0) {
+            total = costo + fijo;
+            cout << "SIN CONSUMO REGISTRADO"<< endl;
+            cout << "Total a pagar: " <<total <<endl;
+        } else {
+            if (metros <= 15) {
+                costo = metros * 1.20;
+                categoria = "Consumo Minimo";
+            } else if (metros <= 35) {
+                costo = metros * 2.50;
+                categoria = "Consumo Domestico";
+            } else if (metros <= 70) {
+                costo = metros * 4.00;
+                categoria = "Consumo Comercial";
+            } else {
+                costo = metros * 6.50;
+                categoria = "Consumo Industrial";
+            }
+
+            //Proceso
+
+            total = costo + fijo;
+
+           //Salida
+            cout << fixed << setprecision(2);
+            cout << "Resultado: " << categoria << endl;
+            cout << "Monto a pagar: Bs " << total << endl;
+        }
+
+        return 0;
+    }
