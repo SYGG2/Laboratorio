@@ -1,0 +1,77 @@
+#include <iostream>
+
+using namespace std;
+
+int leerDias() {
+    int dias;
+    cout << "Ingrese la cantidad de dias a evaluar: ";
+    cin >> dias;
+
+    while (dias <= 0) {
+        cout << "La cantidad de dias debe ser mayor a 0. Ingrese nuevamente: ";
+        cin >> dias;
+    }
+
+    return dias;
+}
+
+void clasificarMonto(double venta) {
+    if (venta > 1000.0) {
+        if (venta > 2000.0) {
+            cout << "Clasificacion: Venta excelente" << endl;
+        } else {
+            cout << "Clasificacion: Venta alta" << endl;
+        }
+    } else {
+        if (venta < 500.0) {
+            cout << "Clasificacion: Venta baja" << endl;
+        } else {
+            cout << "Clasificacion: Venta regular" << endl;
+        }
+    }
+}
+
+void procesarVentas(int dias, double &totalVendido, double &promedioDiario, int &diasMayoresA1000) {
+    double venta;
+    totalVendido = 0.0;
+    diasMayoresA1000 = 0;
+
+    for (int i = 1; i <= dias; i++) {
+        cout << "Ingrese el monto vendido en el dia " << i << " (Bs): ";
+        cin >> venta;
+
+        while (venta < 0.0) {
+            cout << "El monto no puede ser negativo. Ingrese nuevamente: ";
+            cin >> venta;
+        }
+
+        clasificarMonto(venta);
+
+        totalVendido = totalVendido + venta;
+
+        if (venta > 1000.0) {
+            diasMayoresA1000 = diasMayoresA1000 + 1;
+        }
+    }
+
+    promedioDiario = totalVendido / dias;
+}
+
+void mostrarResultados(double totalVendido, double promedioDiario, int diasMayoresA1000) {
+    cout << "Monto total vendido: Bs " << totalVendido << endl;
+    cout << "Promedio diario: Bs " << promedioDiario << endl;
+    cout << "Dias con ventas superiores a Bs 1000: " << diasMayoresA1000 << endl;
+}
+
+int main() {
+    int dias;
+    double totalVendido = 0.0;
+    double promedioDiario = 0.0;
+    int diasMayoresA1000 = 0;
+
+    dias = leerDias();
+    procesarVentas(dias, totalVendido, promedioDiario, diasMayoresA1000);
+    mostrarResultados(totalVendido, promedioDiario, diasMayoresA1000);
+
+    return 0;
+}
