@@ -1,0 +1,51 @@
+#include <iostream>
+
+using namespace std;
+
+void leerNumero(int &N);
+void descomponerNumero(int N, int &u, int &d, int &c, int &m);
+void mostrarDigitos(int u, int d, int c, int m);
+
+int main() {
+    int N;
+    int u;
+    int d;
+    int c;
+    int m;
+
+    N = 0;
+    u = 0;
+    d = 0;
+    c = 0;
+    m = 0;
+
+    leerNumero(N);
+    descomponerNumero(N, u, d, c, m);
+    mostrarDigitos(u, d, c, m);
+
+    return 0;
+}
+
+void leerNumero(int &N) {
+    cout << "Ingrese un numero entero positivo menor que 10000: ";
+    cin >> N;
+
+    while (N < 1 || N >= 10000) {
+        cout << "Numero fuera de rango. Ingrese un valor entre 1 y 9999: ";
+        cin >> N;
+    }
+}
+
+void descomponerNumero(int N, int &u, int &d, int &c, int &m) {
+    m = N / 1000;
+    c = (N / 100) % 10;
+    d = (N / 10) % 10;
+    u = N % 10;
+}
+
+void mostrarDigitos(int u, int d, int c, int m) {
+    cout << "Unidades de mil (m): " << m << endl;
+    cout << "Centenas (c): " << c << endl;
+    cout << "Decenas (d): " << d << endl;
+    cout << "Unidades (u): " << u << endl;
+}
