@@ -34,17 +34,17 @@ double leerYCalcularPromedio(int cantidad) {
     return suma / cantidad;
 }
 
-bool verificarAprobacion(double promedio) {
+int verificarAprobacion(double promedio) {
     if (promedio >= 51.0) {
-        return true;
+        return 1;
     } else {
-        return false;
+        return 0;
     }
 }
 
-void mostrarResultados(double promedio, bool aprobado) {
+void mostrarResultados(double promedio, int estado) {
     cout << "Promedio final: " << promedio << endl;
-    if (aprobado) {
+    if (estado == 1) {
         cout << "Estado: Aprobado" << endl;
     } else {
         cout << "Estado: Reprobado" << endl;
@@ -54,9 +54,9 @@ void mostrarResultados(double promedio, bool aprobado) {
 int main() {
     int cantidad = leerCantidad();
     double promedio = leerYCalcularPromedio(cantidad);
-    bool aprobado = verificarAprobacion(promedio);
+    int estado = verificarAprobacion(promedio);
 
-    mostrarResultados(promedio, aprobado);
+    mostrarResultados(promedio, estado);
 
     return 0;
 }
