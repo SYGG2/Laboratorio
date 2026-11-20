@@ -1,0 +1,78 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+void leerCoeficientes(double &a, double &b, double &c);
+double calcularDiscriminante(double a, double b, double c);
+void calcularRaices(double a, double b, double discriminante, double &x1, double &x2);
+void mostrarResultado(double a, double discriminante, double x1, double x2);
+
+int main() {
+    double a;
+    double b;
+    double c;
+    double discriminante;
+    double x1;
+    double x2;
+
+    a = 0.0;
+    b = 0.0;
+    c = 0.0;
+    discriminante = 0.0;
+    x1 = 0.0;
+    x2 = 0.0;
+
+    leerCoeficientes(a, b, c);
+
+    if (a != 0.0) {
+        discriminante = calcularDiscriminante(a, b, c);
+        if (discriminante >= 0.0) {
+            calcularRaices(a, b, discriminante, x1, x2);
+        }
+    }
+
+    mostrarResultado(a, discriminante, x1, x2);
+
+    return 0;
+}
+
+void leerCoeficientes(double &a, double &b, double &c) {
+    cout << "Ingrese el coeficiente a: ";
+    cin >> a;
+    cout << "Ingrese el coeficiente b: ";
+    cin >> b;
+    cout << "Ingrese el coeficiente c: ";
+    cin >> c;
+}
+
+double calcularDiscriminante(double a, double b, double c) {
+    double disc;
+    disc = (b * b) - (4.0 * a * c);
+    return disc;
+}
+
+void calcularRaices(double a, double b, double discriminante, double &x1, double &x2) {
+    double raiz;
+    raiz = sqrt(discriminante);
+
+    if (discriminante == 0.0) {
+        x1 = -b / (2.0 * a);
+        x2 = x1;
+    } else {
+        x1 = (-b + raiz) / (2.0 * a);
+        x2 = (-b - raiz) / (2.0 * a);
+    }
+}
+
+void mostrarResultado(double a, double discriminante, double x1, double x2) {
+    if (a == 0.0) {
+        cout << "La ecuacion no es cuadratica" << endl;
+    } else if (discriminante > 0.0) {
+        cout << "Dos soluciones reales distintas: x1 = " << x1 << ", x2 = " << x2 << endl;
+    } else if (discriminante == 0.0) {
+        cout << "Una solucion real doble: x1 = " << x1 << ", x2 = " << x2 << endl;
+    } else {
+        cout << "No existen soluciones reales" << endl;
+    }
+}
